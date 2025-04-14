@@ -48,7 +48,9 @@ async function downloadResult() {
               :width="400"
           >
             <template #reference>
-              <el-button :icon="QuestionFilled" circle />
+              <el-icon :size="25">
+                <QuestionFilled />
+              </el-icon>
             </template>
           </el-popover>
         </el-space>
