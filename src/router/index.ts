@@ -4,19 +4,19 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '/',
+      path: '',
       component: () => import('@/views/HomeView.vue'),
       children: [
         {
-          path: '/',
+          path: '',
           redirect: '/divingfish'
         },
         {
-          path: '/divingfish',
+          path: 'divingfish',
           component: () => import('@/views/DivingFishView.vue')
         },
         {
-          path: '/lxns',
+          path: 'lxns',
           component: () => import('@/views/LxnsView.vue')
         }
       ]

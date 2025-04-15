@@ -5,10 +5,6 @@ import router from "@/router";
 
 const isDark = useDark();
 
-const isMobile = () => {
-  return window.innerWidth <= 768;
-};
-
 function handleDropdownMenu(index: string) {
   router.push(index)
 }
@@ -25,12 +21,11 @@ function openUrl(url: string) {
 <template>
   <el-header class="of-hidden backdrop-blur-lg">
     <el-row align="middle" justify="space-between" class="header-row">
-      <div style="padding: 1em">查分器数据转AquaDX数据</div>
-      <el-divider direction="vertical" />
+      <div style="padding: 1em" class="header-title">查分器数据转AquaDX数据</div>
+      <el-divider direction="vertical" class="header-title"/>
       <el-menu
           mode="horizontal"
           class="menu"
-          v-if="!isMobile()"
           router
       >
         <el-menu-item index="divingfish">水鱼查分器</el-menu-item>
@@ -39,7 +34,6 @@ function openUrl(url: string) {
       <el-dropdown
           trigger="click"
           class="dropdown-menu"
-          v-if="isMobile()"
           @command="handleDropdownMenu"
       >
         <span>
@@ -60,7 +54,7 @@ function openUrl(url: string) {
           openUrl('https://github.com/SkyDynamic/ProberDataToAquaDXData')
         }"
         type="text"
-        style="margin-left: auto;"
+        style="margin-left: auto"
         text
       >
         Github
@@ -99,28 +93,26 @@ function openUrl(url: string) {
   background-color: transparent;
 }
 
-.switch-container {
-  margin-right: 1rem;
-}
-
-.menu-switch-container {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
+.dropdown-menu {
+  display: none;
 }
 
 @media (max-width: 768px) {
+  .menu {
+    display: none;
+  }
+
   .dropdown-menu {
     display: block;
+  }
+
+  .header-title {
+    display: none;
   }
 
   .el-page-header {
     width: auto;
     margin-right: 1rem;
-  }
-
-  .el-switch {
-    margin-left: auto;
   }
 }
 </style>
